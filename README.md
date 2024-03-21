@@ -2,4 +2,4 @@
 2) cd password_generator
 3) npm i
 4) npm run dev
-And you are good to go!
+5)And you are good to go!
