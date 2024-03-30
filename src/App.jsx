@@ -44,41 +44,84 @@ const App = () => {
     [password],
   )
   return (
-    <div className='w-screen h-screen flex items-center justify-center bg-slate-400 '>
-      <div className="w-full max-w-md mx-auto  shadow-md rounded-lg px-4 py-3 my-8 h-96 bg-gray-800 text-orange-500">
-        <h1 className="text-white text-center text-4xl my-3">Password Generator</h1>
-        <div className="flex shadow rounded-lg overflow-hidden mb-4">
+    <div className='w-screen h-screen flex items-center justify-center bg-white'
+      style={{
+        fontFamily: "cursive",
+        position: "relative"
+      }}
+    >
+      <div className=' w-screen h-screen bg-[#2a2c42] text-center'
+        style={{
+          clipPath: "polygon(0 0, 100% 0%, 100% 48%, 0 82%)"
+        }}
+      >
+        <h1 className="text-[#3ab694] text-center mt-10 text-5xl md:text-7xl my-3"
+          style={{
+            fontFamily: "cursive"
+          }}
+        >Password Generator</h1>
+        <h1 className="text-[#3ab694] text-center mt-10 text-2xl md:text-4xl my-3"
+          style={{
+            fontFamily: "cursive"
+          }}
+        >
+          Generate Strong and random Passwords to Keep your <br /> accounts Safe Online
+        </h1>
+
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "60%", // Adjusted for better vertical alignment
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          maxWidth: "90%", // Ensures it doesn't overflow on smaller screens
+          width: "600px", // Adjust width as needed
+        }}
+        className="bg-[#3ab694] p-6 md:p-10 rounded-lg" // Reduced padding on smaller screens
+      >
+        <div className="flex flex-col md:flex-row justify-between mb-6 md:mb-10">
           <input
             type="text"
             value={password}
-            className="outline-none w-full py-1 px-3 bg-gray-700 text-white"
+            className="w-full md:w-96 outline-none rounded-lg text-center text-bold text-[#48bc9c]"
+            style={{
+              fontWeight: "700"
+            }}
             placeholder="Password"
             readOnly
             ref={passwordRef}
           />
           <button
             onClick={copyPasswordToClipboard}
-            className="bg-blue-700 text-white px-3 py-1.5"
+            className="bg-white rounded-lg text-[#48bc9c] px-3 py-1.5 mt-3 md:mt-0"
+            style={{
+              fontFamily: "cursive",
+              fontWeight: "700",
+              border: "2px solid #48bc9c"
+            }}
           >
-            Copy
+            Copy <br /> Password
           </button>
         </div>
-        <div className=" flex flex-col gap-y-5 items-center text-sm gap-x-2">
-          <div className="flex flex-col items-center gap-x-1">
+        <div className="flex flex-col md:flex-row gap-y-3 md:gap-y-5 items-center text-sm gap-x-2">
+          <div className="flex flex-col items-center md:items-start gap-y-4 mb-6 md:mb-10">
+            <label className="text-white text-2xl md:text-3xl mr-3 md:mr-7"> Password Length: {length}</label>
             <input
               type="range"
               min={6}
               max={100}
               value={length}
-              className="cursor-pointer w-96 border-r-orange-600 "
+              className="cursor-pointer bg-gradient-to-r from-[#48bc9c] via-[#48bc9c] to-[#48bc9c] w-full md:w-96 h-2 range-slider"
               onChange={(e) => {
                 setLength(e.target.value);
               }}
             />
-            <br />
-            <label className="text-white text-2xl mr-7">Length: {length}</label>
+
           </div>
-          <div className="flex items-center gap-x-2 ">
+        </div>
+        <div className="flex  items-center md:items-start gap-y-3 md:gap-y-0 gap-x-8">
+          <div className="flex  items-center gap-x-2">
             <input
               type="checkbox"
               defaultChecked={numberAllowed}
@@ -86,12 +129,14 @@ const App = () => {
               onChange={() => {
                 setNumberAllowed((prev) => !prev);
               }}
-              style={{ transform: "scale(1.5)" }}
+              className="form-checkbox h-6 w-6 rounded-md text-green-500 checked:bg-green-500 focus:ring-0 focus:outline-none"
             />
-            <label className="text-white text-2xl " htmlFor="numberInput">Numbers</label>
+
+            <label className="text-white text-2xl md:text-3xl" htmlFor="numberInput">Numbers</label>
           </div>
-          <div className="flex items-center ml-3 gap-x-2">
+          <div className="flex items-center gap-x-2">
             <input
+             className="form-checkbox h-4 w-4 rounded-md text-green-500 checked:bg-green-500 focus:ring-0 focus:outline-none"
               type="checkbox"
               defaultChecked={charAllowed}
               id="characterInput"
@@ -100,12 +145,13 @@ const App = () => {
               }}
               style={{ transform: "scale(1.5)" }}
             />
-            <label className="text-white text-2xl" htmlFor="characterInput">Characters</label>
+            <label className="text-white text-2xl md:text-3xl" htmlFor="characterInput">Characters</label>
           </div>
         </div>
-      </div>
-    </div>
 
+      </div>
+
+    </div>
   )
 }
 
