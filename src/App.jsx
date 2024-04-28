@@ -46,7 +46,7 @@ const App = () => {
   return (
     <div className='w-screen h-screen flex items-center justify-center bg-white'
       style={{
-        fontFamily: "cursive",
+        fontFamily: "helvetica",
         position: "relative"
       }}
     >
@@ -57,12 +57,12 @@ const App = () => {
       >
         <h1 className="text-[#3ab694] text-center mt-10 text-5xl md:text-7xl my-3"
           style={{
-            fontFamily: "cursive"
+            fontFamily: "helvetica"
           }}
         >Password Generator</h1>
         <h1 className="text-[#3ab694] text-center mt-10 text-2xl md:text-4xl my-3"
           style={{
-            fontFamily: "cursive"
+            fontFamily: "helvetica"
           }}
         >
           Generate Strong and random Passwords to Keep your <br /> accounts Safe Online
@@ -96,7 +96,7 @@ const App = () => {
             onClick={copyPasswordToClipboard}
             className="bg-white rounded-lg text-[#48bc9c] px-3 py-1.5 mt-3 md:mt-0"
             style={{
-              fontFamily: "cursive",
+              fontFamily:"helvetica",
               fontWeight: "700",
               border: "2px solid #48bc9c"
             }}
@@ -110,7 +110,7 @@ const App = () => {
             <input
               type="range"
               min={6}
-              max={100}
+              max={50}
               value={length}
               className="cursor-pointer bg-gradient-to-r from-[#48bc9c] via-[#48bc9c] to-[#48bc9c] w-full md:w-96 h-2 range-slider"
               onChange={(e) => {
